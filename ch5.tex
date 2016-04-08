@@ -1,0 +1,72 @@
+\chapter{Discussion and Future Work}
+With the goal of learning more about causes, characteristics and consequences of alcoholism in primates to ultimately detect and prevent AUDs in humans, we explored methods to analyze large heterogeneous data sets. Chapter five provides a discussion on the effectiveness of our attempt and the validity of the tools, compares our results with previous findings, and introduces the potential future work.
+
+
+\section{Effectiveness and Validity of the Tools}
+\subsection{Making Sense of Large Heterogeneous Data Sets}
+MATRR, as a centralized repository for empirical data relating to alcohol self-administration, contains the results of many prior attempts to describe individual animals or individual cohorts. The present studies significantly expand the set of available visual descriptions for animals and cohorts, including various populations of animals based on species, gender or other characteristics. Individual labs generally work with only one cohort at the time, while we were able to combine the data from different experiments. 
+
+Overall, Python, Django, Matplotlib, Pandas and Seaborn proved to be a highly effective and efficient toolset for describing data in convenient, meaningful and representative visual form while allowing data alignment from different sources to cross examine the effects of various factors on primate drinking. We also demonstrated that representative visualization often resulted in additional hypothesis generation, leading to more testing and discovering. 
+
+\subsection{Effectiveness of Machine Learning in Biology}
+In bioinformatics, machine learning (ML) is primarily applied on the analysis of gene expression or mass spectrometry data from genome-wide association studies. In our study we tried to leverage machine learning's robust classification algorithms to achieve the goals that are usually achieved via correlation studies or regression analysis in traditional biology. 
+
+The advantage of the ML approach is that we can employ a much wider spectrum of features. Additionally, since we do not create a rigid structure for the statistical model and allow flexibility, the output learned model, or classification algorithm, may have a very unique and complex structure, exceeding our ability to create it de novo. Coincidentally, complex and flexible learned algorithms are also the greatest weakness of the ML approach: we do not have easy and precise means to extract the rules for classification. Basically, we can only report the significance of the features in the classification task, but not the intricate relationships between them. Despite the fatc that PDPs were useful in our research and helped to visualize some interaction between features, their interpretation proved to be tricky. 
+
+The lack of interpretability when using a ML approach on biological data, however, ceases to be a problem if we are not interested in \textit{how model works, and only that it does work}. Consider the problem of leukocoria detection using ML classifiers on the regular photo of the subject's eyes \shortcite{rivas2014detection}. The goal of detection does not necessarily requires interpretation of the resulting learned model\footnote{In the article cited, in fact, a soft fusion of multiple expert classifiers is used, which makes it even harder to interpret model's decision making process.}, it is much more important that the model will help to timely detect leukocoria with high accuracy. In our study of predicting future drinkers we could redefine the goal into ``detect the predisposition to the alcoholism in the individual based on the alcohol induction data". Such a model could be used to identify individuals at risk and to provide them with timely professional help. 
+
+\subsection{Limitations}
+There are certain limitations that we had to accept in our research. The first is the relatively small sample size of 50. Since getting more samples is both costly and unethical we had to sacrifice models which perform well on big samples. The second limitation is the abundance of outliers. Despite a data collection process that was highly automatized under SIP procedure, outliers, human and machine born, were common.
+
+
+\section{Findings}
+\subsection{Induction Predictive Power}
+Our study ``predicting future drinkers" aimed to achieve the same objective, to predict chronic heavy drinking based on scheduled induction data, as the previous study by \shortcite{grant2008drinking}. However, we had a much larger sample size and used machine learning approach rather then correlation analysis with PCA. Our results, presented in chapter 4, are mostly inline with the previous findings, but there are also some differences. Table~\ref{alg:cum-drink-pattern}  provides the comparison of the factors with the most significant predictive power found by two studies.
+
+\begin{table}[h]
+	\centering
+	\caption{Comparison of the factors with the most significant predictive power found by two studies.}
+	\label{tab:factors-comparison}
+	\begin{tabular}{p{2.8in}p{2.8in}}
+		\hline
+		\abovespace\belowspace
+		\shortcite{grant2008drinking} & Predicting Future Drinkers \\
+		\hline
+		Number of EtOH bouts & Number of EtOH bouts \\
+		Largest EtOH bout volume & Largest EtOH bout length \\ 
+		\% EtOH taken in the largest bout (1.5 g/kg dose phase) & Mean length and volume for EtOH drinks\\
+		Water intake during the rest of the day & Latency to the first drink\\
+		Number of pellets delivered in State 1 & \% of days EtOH consumed in first bout\\
+		& EtOH during first 10 minutes of the day\\
+		& Age at intoxication\\
+		\hline
+	\end{tabular}
+\end{table}
+
+The total number of bouts appears to be an important factor in predicting future AUDs. Specifically, the largest bout appears in both studies as a significant predictor. While the previous study found the percentage of ethanol taken in the largest bout during the last phase (1.5 g/kg dose) is the most indicative, we formed our features in such a way as to \textit{capture the change} from the initial phase (0.5 g/kg dose) to the last phase, thus incorporating that finding.  
+
+Additionally, in our study we were able to demonstrate the predictive power of the first bout, and specifically the first 10 minutes of the day. Also note that the previous study could not use age at intoxication as a factor because they worked with one cohort only while our mixture of cohorts represented the age range from the late adolescence to early middle age.
+
+
+\subsection{Age of The First Ethanol Intoxication}
+Despite the fact that we found ``age of the first ethanol intoxication" to be a significant factor in predicting the future drinking category, \textit{we did not observe a strong linear relationship} between them. Figures \ref{fig:VHD_gradients} and \ref{fig:LD_gradients} in Appendix B demonstrate the complex gradient (of relationship) between the age of intoxication and the likelihood of being later classified as VHD or LD, respectively.
+
+Presently, all the animal have similar age within the cohorts, while age differs between the cohorts. Having animals of various age within a single cohort may enable better analysis of the age of intoxication as a factor in predicting future alcoholism.  
+
+\subsection{Sex Differences}
+Our research showed the definitive influence of the sex differences on alcohol consumption. Female subjects varied the intake significantly according to their menstrual cycle, which was highly correlated with the progesterone hormone (refer to \ref{section:mense}). However, we did not find sex to have a significant predictive power over the future likelihood of alcoholism.
+
+
+
+\section{Future Work}
+The future work has three main routes: trying new analytical and computational tools, collecting data on more subjects, and gathering and deriving more attributes describing those subjects. 
+
+In our research we did not consider neural networks for solving bioinformatic problems. Recently, the computer science community witnessed a surge in \textit{deep convolutional neural networks} that try to imitate the way a human brain works via using simple components to build an extremely complex system capable of solving problems that are not within reach of the other approaches. Such deep neural network can potentially facilitate better understanding of the characteristics underlying the future developments of AUDs.  
+
+The main idea of creating MATRR was to provides the tissues and the data associated with self-administation ethanol experiment to the broader alcohol research community. While different researches reuse the materials from MATRR, we regularly collect the results of their research. Incorporating these results, such as hormone challenge, bone density and others has the potential power to increase the robustness in the task of predicting alcoholism based on early exposure data. 
+
+Finally, the trending Big Data tools could be very applicable in our field. Big Data tools are based on NoSQL concept which broadens the traditional SQL world by allowing soft consistency properties, named BASE. The main advantage of using NoSQL is the increase in computational power by employing distributed database management systems. Until now we were able to keep the computation time within minutes, but adding more samples and more data sources may increase the computation load thus rendering distributed computations advantageous. The downside is the increased chance of errors in the data. However, since our heterogeneous data contains outliers and various errors regardless, and since data mining and machine learning operate in probabilistic fashion thus tolerating such errors, the computational increase advantage may well offset the downside of occasional inconsistency. 
+
+
+
+	

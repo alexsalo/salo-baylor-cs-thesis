@@ -1,0 +1,43 @@
+\chapter{Literature Overview}
+Present research relies on, uses and tests the validity of the results in the prior studies regarding the ethanol self-administration animal model. Additionally, we surveyed existing studies that deploy machine learning techniques on biological datasets. This helped to elucidate the benefits and pitfalls in biological applications of machine learning and allowed us to select more appropriate statistical models. 
+
+\section{Drinking Categories}
+In this research we ubiquitously use the notion of \textit{drinking category} assigned to each upon the completion of the experiment. Drinking category, a label characterizing the animal to alcohol relationship, is based on quantitative data about the alcohol consumption by the animal during its entire lifetime. Throughout our research we use the animal's assigned drinking category label as \textit{the ground truth for our analysis}. Below is a short overview of how drinking category is computed. 
+
+The current criteria for alcohol use disorders does not include consumption (quantity/frequency) measures of alcohol intake, in part due to the difficulty of these measures in humans \shortcite{baker2014chronic}. Animal models of voluntary oral ethanol self-administration have enabled usage of the highly accurate quantity/frequency measures over prolonged periods of time. In particular, a large multi-cohort population of Rhesus (Macaca mulatta) monkeys (n=31) was analyzed to establish persistent drinking categories based primarily on the following factors:
+\begin{itemize}
+	\item Daily alcohol intakes normalized in grams per kilogram [g/kg] of the body weight.
+	\item Blood Ethanol Concentration\footnote{In each cohort, BEC was measured every fifth day of the experiment.} (BEC) in mg/dl - a measure which is legally used in the United States to determine alcohol intoxication (over 80 mg/dl). 
+\end{itemize}
+
+Experimental results show that daily ethanol intake was uniformly distributed over chronic (12 months) access for all animals, yet underlying this distribution of intakes were subpopulations of monkeys that exhibited distinctive clustering of drinking patterns \shortcite{baker2014chronic}. Aiming to define the distinct drinking categories that demonstrate the most stability over time the following classification is used:
+\begin{itemize}
+	\item Very heavy drinking (VHD) animals are defined by having an average daily ethanol intake exceeding 3 g/kg AND have $\ge 10\%$ of days with an ethanol intake exceeding 4 g/kg.
+	\item Heavy drinking (HD) animals are defined by having an ethanol consumption of $\ge 3 g/kg$ for $\ge 20\%$ of days.
+	\item Binge drinking (BD), animals are defined by having an ethanol consumption of $\ge 2 g/kg$ for $\ge 55\%$ of days	AND	a recorded BEC $\ge 80 mg/dl$ at least once per year.
+	\item Low drinking (LD) animals are defined as not BD, not HD, and not VHD.
+\end{itemize} 
+
+As previously published, this way of classifying animals \textit{shows the most stability over time}. However, it is important to note, that such artificially defined drinking categories is not an objective reality, which is important when analyzing the results described in \cref{section:predicting-drinkers}.
+
+
+\section{Scheduled Induction Predicts Chronic Heavy Drinking}
+The objective of the following experiment is to characterize a large number of behavioral and organismal variables related to drinking during the initial exposure to alcohol and determine which, if any, variables could predict which monkeys would become chronic and heavy drinkers \shortcite{grant2008drinking}. The study uses Principal Component Analysis (PCA) in order to reduce the dimension of predictors and regression models to correlate quantitative attributes with a future drinking category. Additionally, to better utilize the fact that data describes drinking behavior as a continuous process, functional PCA (FPCA) methodology is used. In FPCA the longitudinal pattern of each predictor is decomposed as a mean curve (counterpart of mean vector as in PCA) plus linear combinations of functional PCs (FPCs, counterpart of principal components or PCs as in PCA).
+
+The above study finds that the first 5 principal components with the highest predictive power are: number of ethanol bouts (defined as less than 300 seconds between consumption of EtOH), largest ethanol bout volume, percentage of the 1.5 g/kg dose taken in the largest bout, water intake during the rest of the day, and the number of pellets delivered in State 1 (under the FT 5 minutes schedule) \shortcite{grant2008drinking}. 
+%It is not clear from the paper how this attributes were restored from the principal components which were used to reduce dimensionality in the first place. 
+
+One objective of our study is to predict chronic heavy drinking based on scheduled induction data, but using a broader tool set - machine learning algorithms. Another difference is in the number of subjects used: the former study uses 10 animals from one cohort, while we analyze 50 animals from 7 different cohorts.
+
+\section{Age and Sex As Factors in AUDs}
+The effect of early initiation of drinking on the risk of AUDs has been debated in many studies. In a recent study it was shown that there is a robust association between age at first drink and the risk of AUD \shortcite{dawson2008age}. The authors argue that it appears to reflect willful rather than uncontrolled heavy drinking, consistent with misuse governed by poor decision-making and/or reward-processing skills associated with impaired executive cognitive function. Since in our research we have access to the information about the age of first alcohol intoxication we are able to directly test this particular finding. In addition, the above mentioned study is based on the \textit{longitudinal self-reporting data} from the National Epidemiological Survey on Alcohol and Related Conditions. In contrast, our study is based on quantity/frequency data which introduces less bias. 
+
+Another factor that is often debated is the role of sex in alcoholism. In one recent study, which uses a two-factor ANOVA model on the subset of the subjects used in our research, the extent of sex differences was greater than previously reported with nonhuman primates \shortcite{vivian2001induction}. Authors note that although ethanol intakes were lower in females compared with males, this diminished consumption of ethanol is not without its consequences. Preliminary data demonstrated \textit{profound changes in menstrual cycle quality} that were associated with higher ethanol intakes. These perturbations in ovarian progesterone in heavier-drinking female cynomolgus monkeys are consistent with disruptions of reproductive function observed in humans and previously documented in rhesus monkeys \shortcite{vivian2001induction}. Since we are increasing the sample size by using five cohorts we are able to use machine learning tools to test sex as a factor in developing AUDs. 
+
+
+\section{Machine Learning in Biology}
+Machine learning (ML) has gained momentum over recent years in many different spheres of research. ML is broadly defined as a set of techniques that allow computers to \textit{learn} without being explicitly programmed \shortcite{simon2013too}. By learning we understand the ability to make predictions on general data after seeing it partially. ML algorithms aim to build a model based on example inputs and make data-driven predictions. That approach contrasts with other statistical methods where model is a set of strictly static instructions. ML, however, often uses available statistical tools and rather extend than replace them. 
+
+Recent work in computational biology has seen an increasing use of ML, specifically ensemble learning methods, due to their unique advantages in dealing with small sample size, high-dimensionality, and complex data structures \shortcite{yang2010review}. However, in bioinformatics, machine learning is predominantly applied into the main topics of gene expression, mass spectrometry-based proteomics and gene-gene interaction identification from genome-wide association studies. In our research we try to apply machine learning to heterogeneous behavioral data sets in order to get insights about the behavioral characteristics that could facilitate early AUD detection. 
+
+

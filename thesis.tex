@@ -1,0 +1,106 @@
+% Baylor University Master's Thesis LaTeX template
+% Template created by Jonathan Drake (2013)
+
+% This work is the property of Aleksandr Salo,
+% Student of Baylor University, Computer Science Department. 
+% Copying or using without notifying me is not allowed. 
+% Contact email is alexsalovrn at gmail com
+
+% Thesis class, based on report
+\documentclass
+[
+	%short,	% omit front matter
+	%draft, 	% draft heading, don't load graphics, etc.
+]
+{thesis}
+
+% Optional additional packages
+%\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{tabularx}
+\usepackage{adjustbox}  
+\usepackage{amsmath}
+\usepackage{chicago}
+\usepackage{lipsum} % Because this comes with a demo
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{epstopdf}
+\usepackage{epsfig}
+\usepackage{longtable}
+\usepackage[]{algorithm2e}
+\usepackage{listings}
+\usepackage{cleveref}
+\usepackage{hyperref}
+
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+% Thesis parameters
+\title{Data Interpretation and Learning on Heterogeneous Behavioral Data Sets.}
+\author{Aleksandr Salo}
+\holding{B.S.}
+\seeking{M.S.}
+\degree{Master of Science}
+\date{May 2016}
+
+% Administration
+\graduateDean{J. Larry Lyon, Ph.D.}
+\department{Department of Computer Science}
+\departmentChair{Gregory D. Speegle, Ph.D.}
+
+% Supervisor (adviser / mentor)
+\supervisor{Erich J. Baker, Ph.D.}
+\supervisorTitle{Academic Adviser}
+
+%  Readers (committee members)
+\readerOne{Greg Hamerly, Ph.D}
+\readerTwo{Enrique Blair, Ph.D}
+%\readerOne{Erich J. Baker, Ph.D.}
+%\readerFour{...}
+%\readerFive{...}
+
+% Abstract
+\abstract{
+	The Monkey Alcohol and Tissue Research Resource (MATRR) is a rich data repository containing heterogeneous experimental data derived from well-documented non-human primate alcohol self-administration studies. This macaque model has demonstrated categorical drinking norms reflective of human drinking populations. By thorough analysis of the available data we are able to better understand the causative agents, progression and features of alcoholism.
+	
+	This project presents investigation results separated into two sections: the first describes the rapid discovery and testing of new hypothesis; the second describes the detailed study of predicting future levels of alcoholism based on early (induction) drinking and behavioral data using machine learning techniques. Each study takes advantage of a different set of tools and traces their effectiveness, validity and limitations when describing data in meaningful visual form. We also explore the assignment and cross-examination of data from different sources, and how they aid in generating hypothesis and observing gender and drinking category differences.
+}
+
+% Acknowledgments (optional)
+\acknowledgements{I want to express my great appreciation to my mentor Dr. Erich J. Baker for guiding me in this research. I also grateful to Dr. Kathy Grant for providing us with data and valuable biological insights.}
+
+% Dedication (optional)
+%\dedication{\it To Stacey}
+
+% List of figures (optional)
+\makeListOfFigures
+
+% List of tables (optional)
+\makeListOfTables
+
+% Document body
+\begin{document}
+
+	% Chapters
+	\include{ch1}
+	\include{ch2} 
+	\include{ch3}
+	\include{ch4}
+	\include{ch5}
+	
+	% Appendices (optional)
+	% TODO: make the thesisAppendixPage automagic if the \begin{appendices} exists
+	\thesisAppendixPage 
+	\begin{appendices}
+		\appendix
+		\include{appendixA}
+		\include{appendixB}
+	\end{appendices}
+	
+	% Bibliography
+	\bibliographystyle{chicago} % or whatever style your department uses
+	\bibliography{thesis}
+	
+\end{document}

@@ -1,0 +1,30 @@
+\chapter{Introduction}
+
+\section{Problem Domain and Motivation}
+Alcohol use disorder (AUD) is a worldwide public health concern and estimated to be the third largest preventable cause of death in the United Sates \shortcite{mokdad2004actual}. This provides motivation for the extensive study of the causes and characteristics of AUDs since identifying risk factors can help to develop and evaluate AUD prevention and treatment programs. However, quantitative controlled studies on humans are usually not feasible for ethical reasons, and mostly rely on self-reporting in relation to drinking behavior or the associated time frames related to drinking \shortcite{hasin2013dsm}. Inconsistency of self-reporting qualitative data does not allow for robust statistical analysis. 
+
+To better understand and model the individual differences in severity of AUDs, a non-human primate (NHP) macaque model of oral alcohol self-administration was developed \shortcite{grant2008drinking}. This macaque model has demonstrated to be reflective of human drinking populations in its categorical drinking norms \shortcite{baker2014chronic}. The Monkey Alcohol and Tissue Research Resource (MATRR)\footnote{Available online: \url{www.matrr.com}} is a data repository and analytics platform for detailed experimental data derived from such NHP alcohol self-administration studies \shortcite{daunais2014monkey}. Specifically, a wide range of data can be collected and collated across individual animals and animal cohorts within the context of a well-defined schedule-induced polydipsia (SIP) model for establishing drinking to intoxication \shortcite{grant2008drinking}. Such data includes subject's drinking pattern, drinking behavior, age, and physiological response to intoxication during the induction period. Overall, MATRR provides a rich volume of heterogeneous data for statistical analysis. 
+
+Analyzing detailed biological data from MATRR requires thorough and efficient strategies which handle the associated complications. The main difficulties are: 
+\begin{itemize}
+	\item Large volumes: over 20 GB of normalized data in the database.
+	\item Heterogeneity: animals of different species, data from various experiments and multiple sources.
+	\item Inconsistency: naturally inconsistent data in addition to many human and machine errors produced during the experiments stage or later during the data consolidation stage.
+	\item Uncertainty: we do not know in advance whether the data is useful or not. Using meaningless data may hurt the model; not using meaningful data may lead to lower accuracy.  
+\end{itemize} 
+
+In this research we try to address this issue by using and evaluating available data analytics tools, combining them and developing novel models. 
+
+\section{Research Objectives}
+Our ultimate goal is to prevent negative effects associated with AUDs via learning more about alcoholism, its causes, accompanying characteristics and consequences in primates. To achieve this goal we need to be able to cope with difficulties of analyzing large volumes of heterogeneous data from repositories such as MATRR. Thus, the objectives for the present research are:
+\begin{itemize}
+\item To describe data in convenient, meaningful and representative visual form.
+\item To align (correlate) data from different sources to cross examine the effects of various factors on primate drinking.
+\item To use data analysis tools for generating hypothesis.
+\item To understand whether or not early data associated with alcohol introduction is predictive of the future levels of alcoholism. 
+\item To see whether there is a difference in drinking patterns in males versus females, and low drinking animals versus high drinking animals.
+\end{itemize} 
+
+
+\section{Thesis Structure}
+The current chapter overviews the problem domain and motivation. The second chapter highlights the previous work on which present research relies and provides comparison between this and earlier studies. The literature overview includes diverse set of papers in both biological and computer science domains. The third chapter presents the building blocks of the present research: materials, tools and methods used to conduct the investigation, and a  novel two-step model for classification on sparse datasets with small sample sizes. Chapter four introduces the qualitative and quantitative results of several studies along with supporting tables and figures. Lastly, chapter five provides a discussion about the effectiveness and validity of the tools,  their limitations, results evaluation and ideas for future work. 

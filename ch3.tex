@@ -49,7 +49,7 @@
 	In earlier research \shortcite{baker2014chronic}, described in chapter 2, \textbf{Drinking Categories (DC)} were assigned to each animal based on quantitative data \textit{during the open access phase}. It was shown that clustering all animals into four DCs (low drinking (LD), binge drinking (LD), heavy drinking (HD) and very heavy drinking (VHD)) captures the most variability of quantity/frequency measures of alcohol intake. The important caveat, however, is that these \textit{DCs are not innate features of the animals, but an arbitrary assigned labels}, which do not necessarily constitute the objective reality. Nevertheless, for the purposes of our research DC serves as an objective function, thus in this paper we treat drinking category labels as the ground truth.
 	
 		\subsubsection{Drinking Behavior Attributes}
-		Present research uses data recorded from approximately 5000 total sessions (over 10 GB of normalized data in the database), one session per day per animal. During every session, detailed information about different relational quantitative attributes was collected for behavioral analysis. Daily averages and other derived attributes were summarized into daily averages as appropriate \shortcite{grant2008drinking}.
+		Present research uses data recorded from approximately 5000 total sessions (over 20 GB of normalized data in the database), one session per day per animal. During every session, detailed information about different relational quantitative attributes was collected for behavioral analysis. Daily averages and other derived attributes were summarized into daily averages as appropriate \shortcite{grant2008drinking}.
 		
 		Figure~\ref{experiment_design} provides an illustration of the data collected for one animal. Points represent aggregated information about one drinking day: average ethanol consumed, mean volume of ethanol bouts and the total number of such bouts.
 		
@@ -308,8 +308,8 @@
 	Typically, standard accuracy is the way of measuring performance in ordinary classification problems, which is computed as the total number of correctly classified samples over the total number of samples. Additionally, our accuracy rate is modified to allow for a two-step classification model. The accuracy, thus, is computed by multiplying the prior probability of a sample being in a group (LD \& BD or HD \& VHD) by the standard accuracy in either of those two groups. Composite accuracy is then computed by multiplication with standard accuracy of the first step classification. Accuracy is always computed using a 10-fold cross-validation strategy that was averaged across 20 runs. 
 	
 	The base rate is used to determine how well the proposed methodology performs comparatively with the naive approach. Here, the base rate is defined as follows: let $D$ be the list of ''targets", or the list of categories corresponding to each observation in the training data; let $g(D,c)$ be a function over the list of targets, with the count of items in the list $D$ that are equal to category $c$. Given an observation of the data, $x$, we define our base rate as a naive classifier: 
-	\begin{equation} \label{eq:naive-classifier}
-	NaiveClassifier(x)= \argmax_{c}g(D, c)
+	\begin{equation} 
+	NaiveClassifier(x)= \argmax_{c}g(D, c) \label{eq:naive-classifier}
 	\end{equation}
 	A naive classifier in equation \ref{eq:naive-classifier} is not a poor classifier, but rather an educated guess that chooses the category with strictly the greatest number of occurrences. This naive classifier is better than choosing at random with no prior information of the data.
 
